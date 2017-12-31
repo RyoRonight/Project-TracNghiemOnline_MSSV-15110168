@@ -20,6 +20,8 @@
     <script src="bootstrap/js/bootstrap.min.js"></script>
     <script src="js/search_table.js"></script>
     <script src="js/disable_text.js"></script>
+    <link href="css/jquery.dataTables.min.css" type="text/css" rel="stylesheet">
+    <script src="js/jquery.dataTables.min.js"></script>
     <title>Trang quản lý kỳ thi</title>
 </head>
 
@@ -94,7 +96,14 @@
                 <label style="color: red;font-weight: bold;"><span class="glyphicon glyphicon-search"></span> Tìm nhanh</label>
                 <input type="text" id="searchTable" class="form-control" placeholder="Tìm..." style="width: 95%;height:100% ;background: #fff">
             </div>
-            <table class="table" style="width: 100%">
+            
+            <script>
+	            $(document).ready(function() {
+	                $('#pt1').DataTable();
+	            } );
+            </script>
+            
+            <table class="table" style="width: 100%" id="pt1">
                 <thead>
                     <tr>
                         <th>Mã đề thi</th>

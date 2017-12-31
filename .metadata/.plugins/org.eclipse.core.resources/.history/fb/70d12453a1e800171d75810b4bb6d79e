@@ -1,7 +1,0 @@
-package wp.Ryo.bean;
-
-import java.math.BigInteger;
-
-public class Question {
-
-}

@@ -20,8 +20,6 @@
     <script src="js/jquery-3.2.1.min.js"></script>
     <script src="bootstrap/js/bootstrap.min.js"></script>
     <script src="js/search_table.js"></script>
-    <link href="css/jquery.dataTables.min.css" type="text/css" rel="stylesheet">
-    <script src="js/jquery.dataTables.min.js"></script>
     <title>Trang quản lý câu hỏi</title>
 </head>
 

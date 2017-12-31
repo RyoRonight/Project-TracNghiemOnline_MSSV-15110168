@@ -20,6 +20,8 @@
     <script src="js/jquery-3.2.1.min.js"></script>
     <script src="bootstrap/js/bootstrap.min.js"></script>
     <script src="js/search_table.js"></script>
+    <link href="css/jquery.dataTables.min.css" type="text/css" rel="stylesheet">
+    <script src="js/jquery.dataTables.min.js"></script>
     <title>Trang quản lý câu hỏi</title>
 </head>
 
@@ -100,8 +102,13 @@
          		select * from cauhoi;
          	</sql:query>
             
+            <script>
+	            $(document).ready(function() {
+	                $('#pt').DataTable();
+	            } );
+            </script>
             
-            <table class="table" style="width: 100%">
+            <table class="table" style="width: 100%" id="pt">
                 <thead>
                     <tr>
                         <th>Mã câu hỏi</th>
