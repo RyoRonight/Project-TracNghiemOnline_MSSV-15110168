@@ -1,0 +1,502 @@
+body {
+	margin: 0px;
+	background-image: url(../images/b.jpg);
+	background-size:  cover;
+}
+
+.inline-block {
+	display: inline-block;
+}
+
+/**********************Header**************************/
+header img {
+	width: 100%;
+	border: 2px solid blue;
+}
+
+/*******************My-Container***********************/
+.my-container {
+	margin: auto;
+	width: 96%;
+	border:black 2px soliid;
+	margin-bottom: 100px;
+}
+
+.my-container #logo {
+	margin-top: 2.5%;
+	margin-bottom: -2%;
+	width: 100%;
+	font-size: 35px;
+	font-weight: bold;
+	color: #D43456;
+	animation-name: example;
+    animation-duration: 4s;
+    animation-iteration-count: infinite;
+    
+}
+
+/*animation*/
+@keyframes example {
+    from {color: red;}
+    to {color: #6A2385;}
+}
+
+/********Thanh Navbar********/
+.navbar {
+	background: #222!important;
+	margin-bottom: 0px;
+}
+
+.affix {
+	top:0;
+	width: 100%;
+	z-index: 9999 !important;
+}
+
+nav .my-btn {
+	border: none;
+	background: #222;
+	color: orange;
+	font-weight: bold;
+}
+
+nav .my-btn:hover {
+	color: #09ed14;
+}
+
+nav .my-btn:active {
+	background: #222;
+	color: orange;
+	font-weight: bold;
+}
+
+nav .my-btn:focus {
+	background: #222;
+	color: orange;
+	font-weight: bold;
+}
+
+
+/*********Tieu de*********/
+.tieude {
+    font-size: 20px;
+    color: #fff;
+    border: 1px solid #A9F5F8;
+    border-radius: 5px;
+    background-color: #099680;
+    width: 47%;
+    box-shadow: 0 0 10px 1px #099680;
+    padding: 1% 0% 1% 2%;
+    cursor: default;
+    margin-top: 5%;
+    margin-bottom: 2%;
+}
+
+/******Section 1********/
+.list-group {
+	font-size: 17px;
+	font-weight: bold;
+	width: 85%;
+}
+
+.list-group-item {
+	border: 1px solid #1dd8e0 !important;
+	background: #A9F5F8 !important;
+	color: blue !important;
+}
+
+.list-group-item:hover {
+	color: red !important;
+}
+
+#section1 .carousel-inner {
+	height: 400px !important;
+}
+
+
+/******Section 2********/
+#section2 .col-sm-8 {
+	margin: auto;
+	width: 95% !important;
+}
+
+.media-carousel .carousel-control.left {
+  left: 12px;
+  background-image: none;
+  background: none repeat scroll 0 0 #222222;
+  border: 4px solid #FFFFFF;
+  border-radius: 23px 23px 23px 23px;
+  height: 40px;
+  width : 40px;
+  margin-top: 60px
+}
+
+.media-carousel .carousel-control.right {
+  right: 12px !important;
+  background-image: none;
+  background: none repeat scroll 0 0 #222222;
+  border: 4px solid #FFFFFF;
+  border-radius: 23px 23px 23px 23px;
+  height: 40px;
+  width : 40px;
+  margin-top: 60px
+}
+
+
+.slideanim {visibility:hidden;}
+.slide {
+	animation-name: slide;
+	-webkit-animation-name: slide;
+	animation-duration: 1s;
+	-webkit-animation-duration: 1s;
+	visibility: visible;
+}
+
+@-webkit-keyframes slide {
+	0% {
+		opacity: 0;
+		-webkit-transform: translateY(70%);
+	} 
+    100% {
+    	opacity: 1;
+    	-webkit-transform: translateY(0%);
+    }
+}
+
+@media screen and (max-width: 768px) {
+	.col-sm-4 {
+		text-align: center;
+		margin: 25px 0;
+	}
+}
+
+@media screen and (max-width: 480px) {
+	.logo {
+		font-size: 150px;
+    }
+}
+
+.thumbnail {
+	padding: 0 0 15px 0;
+	border: none;
+	border-radius: 0;
+}
+
+.thumbnail img {
+	width: 100%;
+	height: 100%;
+	margin-bottom: 10px;
+}
+
+.thumbnail img:hover{
+	box-shadow: 5px 0px 40px rgba(0,0,0, .2);
+	opacity: 0.5;
+}
+
+
+/******Section 3********/
+.dsmonhoc {
+	margin: auto;
+	width: 90%;
+}
+
+.dsmonhoc div {
+	width: 29%;
+	height: 110px;
+	padding-bottom: 0px;
+	border: 1px solid black;
+    -moz-border-radius: 70px;
+    -webkit-border-radius: 70px;
+    -ms-border-radius: 70px;
+    -o-border-radius: 70px;
+    border-radius: 70px;
+	margin-bottom: 5%;
+	margin-left: 2%;
+	background-position: center;
+	background-size: cover;
+}
+
+.dsmonhoc div p {
+	height: 110px;
+	text-align: center;
+	font-size: 30px;
+	color: #fff;
+	font-weight: bold;
+	background: rgba(0,0,0,0.4);
+	padding-top: 10%;
+	margin-bottom: 0px;
+	-moz-border-radius: 70px;
+    -webkit-border-radius: 70px;
+    -ms-border-radius: 70px;
+    -o-border-radius: 70px;
+    border-radius: 70px;
+}
+
+.dsmonhoc div a:hover {
+	text-decoration: none;
+	font-color: #63e884;
+}
+
+.dsmonhoc #mon1 {
+	background-image: url(../images/AVV.jpg);
+}
+
+.dsmonhoc #mon2 {
+	background-image: url(../images/vat-ly.gif);
+}
+
+.dsmonhoc #mon3 {
+	background-image: url(../images/mang-may-tinh.gif);
+}
+
+.dsmonhoc #mon4 {
+	background-image: url(../images/toancaocapa1.jpg);
+}
+
+.dsmonhoc #mon5 {
+	background-image: url(../images/web.png);
+}
+
+.dsmonhoc #mon6 {
+	background-image: url(../images/HDH.jpg);
+}
+
+.dsmonhoc>a {
+	font-size: 25px;
+    color: #1115C9;
+    animation-name: all_thongbao;
+    animation-duration: 4s;
+    animation-iteration-count: infinite;
+}
+
+/*animation*/
+@keyframes all_thongbao {
+    0%  {color: #1115C9;}
+    20% {color: #E80C1C;}
+    40% {color: #DC08D5;}
+    60% {color: #11860B;}
+    80% {color: #BCC803;}
+    100% {color: #F84F0D;}
+}
+
+.thongbao #allthongbao a:hover {
+    color: #EB791C;
+}
+
+
+/******Section 4********/
+.editer {
+	margin: auto;
+	width: 90%;
+}
+
+.editer .slider {
+	margin: auto;
+	margin-top: 7%;
+	margin-bottom: 7%;
+	width: 600px;
+	height: 200px;
+}
+
+.editer .slide {
+	float: left;
+	width: 33.33333%;
+	height: 100%;
+	overflow-x: hidden;
+	border-radius: 50%;
+	box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.5);
+}
+
+.editer .slide#slide-center {
+	box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.75);
+	transform: scale(1.3);
+}
+
+.slide-holder {
+	width: 300%;
+	height: 100%;
+	transform: translateX(-33.33333%);
+}
+
+.slide-bg {
+	width: 33.33333%;
+	height: 100%;
+	background-size: cover;
+	background-position: center;
+	background-repeat: no-repeat;
+	float: left;
+}
+
+.editer>a {
+	font-size: 25px;
+    color: #1115C9;
+    animation-name: all_thongbao;
+    animation-duration: 4s;
+    animation-iteration-count: infinite;
+}
+
+#slide-left .bg-previous {
+  background-image: url("../images/Kha.jpg");
+}
+#slide-left .bg-current {
+  background-image: url("../images/Chuan.jpg");
+}
+#slide-left .bg-next {
+  background-image: url("../images/Chien.jpg");
+}
+
+#slide-center .bg-previous {
+  background-image: url("../images/Chuan.jpg");
+}
+#slide-center .bg-current {
+  background-image: url("../images/Chien.jpg");
+}
+#slide-center .bg-next {
+  background-image: url("../images/Kha.jpg");
+}
+
+#slide-right .bg-previous {
+  background-image: url("../images/Chien.jpg");
+}
+#slide-right .bg-current {
+  background-image: url("../images/Kha.jpg");
+}
+#slide-right .bg-next {
+  background-image: url("../images/Chuan.jpg");
+}
+
+
+/*******************Modal***********************/
+.modal {
+	padding-top: 3%;
+}
+
+.modal h3 {
+	text-align: center;
+	font-weight: bold;
+	color: blue;
+}
+
+.modal .modal-header,.modal-footer {
+	background: #95f499;
+}
+
+
+/*******************Footer***********************/
+footer {
+	margin: auto;
+	margin-top: 7%;
+	width: 100%;
+	height: 60px;
+	border: 1px solid white;
+	background: #099680;
+	box-shadow: 0 0 10px 1px #099680;
+}
+
+footer .copyright,a {
+	margin-top: 0.5%;
+	text-align: center;
+	font-size: 15px;
+	font-weight: bold;
+	color: orange!important;
+}
+
+footer img {
+	margin-right: 1%;
+}
+
+
+/*Man hinh thu nho toi da 720px*/
+@media only screen and (max-width: 720px) {
+	.my-container #logo {
+		font-size: 18px;
+	}
+
+	.tieude {
+		font-size: 11px;
+	}
+
+	.list-group {
+		font-size: 8px;
+		width: 100%;
+	}
+
+	/******Section 1********/
+	#section1 .carousel-inner {
+		width: 70% !important;
+		height: 60%!important;
+		margin: auto;
+	}
+
+	.carousel-inner img {
+		width: 100% !important;
+		height: 60%!important;
+	}
+
+	/******Section 2********/
+	#section2 .media-carousel {
+		margin: auto;
+		width: 50% !important;
+	}
+
+	/******Section 3********/
+	#section3 .tieude {
+		margin-top: 30px;
+	}
+
+	#section3 .dsmonhoc div p {
+		font-size: 15px;
+		height: 55px;
+	}
+
+	#section3 .dsmonhoc>a {
+		font-size: 14px;
+	}
+
+	#section3 .dsmonhoc div {
+		height: 55px;
+	}
+
+	/******Section 4********/
+	.editer .slider {
+		width: 300px;
+		height: 100px;
+	}
+
+	.arrow img {
+		width: 5% !important;
+	}
+
+	.editer>a {
+		font-size: 14px;
+	}
+
+
+	/********Modal********/
+	.modal {
+		margin: auto;
+		font-size: 10px;
+		width: 50%;
+	}
+
+	.modal-header h3 {
+		font-size: 15px!important;
+	}
+
+	.modal-footer .btn, .modal-body .form-control {
+		font-size: 11px!important;
+	}
+
+	/******Footer********/
+	footer {
+		height: 30px;
+	}
+
+	footer .copyright,a {
+		font-size: 8px;
+	}
+
+	footer img {
+		width: 1%;
+	}
+}

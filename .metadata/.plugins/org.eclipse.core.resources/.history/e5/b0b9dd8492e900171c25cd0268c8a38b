@@ -1,0 +1,163 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+    
+<%@ page import="java.io.*,java.util.*"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/sql" prefix="sql"%>
+
+<!DOCTYPE html>
+<html lang=vi>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=uft-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="css/Trang_chu.css" type="text/css" rel="stylesheet">
+    <link href="css/Trang_Admin.css" type="text/css" rel="stylesheet">
+    <link href="css/Trang_QLCH.css" type="text/css" rel="stylesheet">
+    <link rel="stylesheet" href="bootstrap/css/bootstrap.css">
+    <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+    <link rel="shortcut icon" href="images/logo.png"/>
+    <script src="js/jquery-3.2.1.min.js"></script>
+    <script src="bootstrap/js/bootstrap.min.js"></script>
+    <script src="js/search_table.js"></script>
+    <script src="js/disable_text.js"></script>
+    <title>Trang chỉnh sửa thông tin</title>
+</head>
+
+<body data-spy="scroll" data-target=".navbar" data-offset="50">
+    <header class="header">
+        <img src="images/SPKT.jpg" alt="Trường ĐH SPKT">
+    </header>
+
+    <nav class="navbar navbar-inverse" data-spy="affix" data-offset-top="197">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#">Trang chủ</a>
+            </div>
+            <div>
+                <div class="collapse navbar-collapse" id="myNavbar">
+                    <ul class="nav navbar-nav">
+                        <li><a href="#section1">Trang quản trị</a></li>
+                        <li><a href="#">Trang cá nhân</a></li>
+                        <li><a href="#">Lịch làm việc</a></li>
+                    </ul>
+                    <ul class="nav navbar-nav navbar-right">
+                        <li><a href="#"><span class="glyphicon glyphicon-user"></span> Admin. Ryo</a></li>
+                        <form class="navbar-form navbar-left" action="/action_page.php">
+                            <button type="button" class="btn my-btn" data-toggle="modal" data-target="#myModal">
+                                <span class="glyphicon glyphicon-log-out"></span> Đăng xuất
+                            </button>
+                        </form>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <div class="my-container">
+        <div class="menu">
+            <table class="table">
+                <tbody>
+                    <tr>
+                        <td>
+                            <a class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal" style="background: #c9fafc;">
+                                <span class="glyphicon glyphicon-plus-sign"></span> Thêm thành viên
+                            </a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><a href="#" title=""><span class="  glyphicon glyphicon-open-file"></span> Thêm thành viên (Excel)</a></td>
+                    </tr>
+                </tbody>
+            </table> 
+        </div>
+        
+        <sql:setDataSource var="data"
+				driver="com.mysql.jdbc.Driver"
+				url="jdbc:mysql://localhost/web-tracnghiem" user = "root"  password = "chuan"/>
+			
+		<sql:query dataSource="${data}" var="result">
+	         	select * from cauhoi inner join phuongan on cauhoi.MaCauHoi =?;
+	         	<sql:param value="${MaCauHoi}"/>
+	         	</sql:query>
+        
+        
+        <div class="my-info" style="margin-bottom: 15%">
+        	<c:forEach var="row" items="${result.rows}">
+            <form>
+                <h1 style="text-align: center;color:blue">Thông tin câu hỏi</h1>
+                <div class="inline-block">           
+                    <div class="form-group">
+                        <label for="usrname"><span class="glyphicon glyphicon-user"></span> Mã câu hỏi</label>
+                        <input type="text" name = "u_qsID" class="form-control user" id="qsID myText" value="" disabled style="width: 65%">
+                    </div>
+                    <div class="form-group">
+                        <label for="psw"><span class="glyphicon glyphicon-eye-close"></span> Môn học</label>
+                        <input type="password" name = "u_sub" class="form-control" id="sub myText" value="" disabled style="width:80%">
+                    </div>
+                    <div class="form-group">
+                        <label for="psw">Chủ đề</label>
+                        <input type="text" name = "u_topic" class="form-control" id="topic myText" value="" disabled style="width: 80%">
+                    </div>
+                </div>
+
+                <div class="inline-block">
+                    <div class="form-group">
+                        <label for="usrname">Mức độ</label>
+                        <input type="text" name = "u_level" class="form-control user" id="level myText" value="15110168" disabled style="width: 65%">
+                    </div>
+                    <div class="form-group">
+                        <label for="usrname"> Ngày tạo</label>
+                        <input type="password" name = "" class="form-control" id="ahihi myText" value="" disabled style="width:80%">
+                    </div>
+                </div>
+                <label for="usrname" style="display: block">Câu hỏi:</label>
+                <textarea rows="2" name ="u_content" style="width: 60%" id="qs myText" disabled></textarea>
+                <label for="usrname" style="display: block">Đáp án:</label>
+                <textarea rows="2" name = "u_aa" style="width: 60%" id="aa myText" disabled></textarea>
+                <textarea rows="2" name = "u_ab" style="width: 60%" id="ab myText" disabled></textarea>
+                <textarea rows="2" name = "u_ac" style="width: 60%" id="ac myText" disabled></textarea>
+                <textarea rows="2" name = "u_ad" style="width: 60%" id="ad myText" disabled></textarea>
+                <label for="usrname" style="display: block">Đáp án đúng:</label>
+                <div class="form-group">
+                    <input type="checkbox" name = "u_va" id="va myText" value="student"> Đáp án A
+                    <input type="checkbox" name = "u_vb" id="vb myText" value="exam manager"> Đáp án B
+                    <input type="checkbox" name = "u_vc" id="vc myText" value="question manager"> Đáp án C
+                    <input type="checkbox" name = "u_vd" id="vd myText" value="admin"> Đáp án D
+                </div>
+
+                
+                <div style="display: block;margin-top: 3%">
+                    <button type="submit" id="btn_update" class="btn btn-success" disabled style="display: inline-block">Cập nhật</button>
+                    <button type="button" id="btn_edit" class="btn btn-info" style="display: inline-block" onclick="en_ques()">Chỉnh sửa</button>
+                    <button type="submit" class="btn btn-warning" style="display: inline-block;">Thoát</button>
+                </div> 
+                
+            </form>   
+        </div>
+            
+    </div>
+ 
+    <footer>
+        <div class="copyright">© Copyright 2017 by
+            <a href="#">Example</a>. Chiến-Kha-Chuấn
+            <div class="icon">
+                <img src="icons/icon6.png" alt="Some alt text" width="25">
+                <img src="icons/icon7.png" alt="Some alt text" width="25">
+                <img src="icons/icon8.png" alt="Some alt text" width="25">
+                <img src="icons/icon9.png" alt="Some alt text" width="25">
+                <img src="icons/icon10.png" alt="Some alt text" width="25">
+            </div>
+        </div>
+    </footer>
+
+
+
+
+</body>
+</html>

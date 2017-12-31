@@ -1,0 +1,20 @@
+package wp.Ryo.controller;
+
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import wp.Ryo.bean.User;
+import wp.Ryo.model.DBUser;
+
+@WebServlet("/xoaExam")
+public class deleteExam extends HttpServlet {
+	private static final long serialVersionUID = 1L;
+       
+    public deleteExam() {
+        super();
+    }
+    
+}

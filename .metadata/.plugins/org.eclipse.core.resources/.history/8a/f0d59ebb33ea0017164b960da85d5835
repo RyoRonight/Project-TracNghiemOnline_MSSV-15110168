@@ -1,0 +1,92 @@
+package wp.Ryo.controller;
+
+import java.io.IOException;
+
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import wp.Ryo.model.DBUser;
+import wp.Ryo.model.DBUser_Info;
+import wp.Ryo.bean.User;
+import wp.Ryo.bean.UserInfo;
+
+
+@WebServlet(urlPatterns = { "/trangchu" })
+public class login extends HttpServlet {
+	private static final long serialVersionUID = 1L;
+	DBUser db = null;
+	
+	public login () {
+		super();
+	}
+	
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
+		try {
+			//nhận giá trị từ request
+			request.setCharacterEncoding("UTF-8");
+			String username = (String) request.getParameter("username");
+			String password = (String) request.getParameter("password");
+			String roles = (String) request.getParameter("rolename");
+			//username va password màu xanh là thuộc tính "name" trong jsp
+			
+			// đưa dữ liệu vào lớp model
+			UserInfo userinfo = new UserInfo();
+			User user = new User();
+			user.setUsername(username);
+			user.setPassword(password);
+			user.setRole(Integer.parseInt(roles));
+			
+			
+			db = new DBUser();
+	
+			// kiểm tra username có tồn tại không
+			if (db.checkUser(user)) {
+				
+				//đưa username vào session
+				request.getSession().setAttribute("username", username);
+				
+				DBUser_Info db1 = new DBUser_Info();
+				String fullname = db1.getFullname(userinfo);
+				
+				//đưa họ tên vào session
+				request.getSession().setAttribute("fullname", fullname);
+				
+				if(user.getRole()==1) {
+					// thông báo thành công
+					request.setAttribute("chuyenhuong", 1);
+					request.getRequestDispatcher("/WEB-INF/HomePageAll.jsp").forward(request, response);
+				}
+				else if(user.getRole()==2 || user.getRole()==3) {
+					request.setAttribute("chuyenhuong", 23);
+					request.getRequestDispatcher("/WEB-INF/HomePageAll.jsp").forward(request, response);
+				}
+				else if(user.getRole()==4) {
+					request.setAttribute("chuyenhuong", 4);
+					request.getRequestDispatcher("/WEB-INF/HomePageAll.jsp").forward(request, response);
+				}
+					
+			}
+			else {
+				//thông báo thất bại
+				request.setAttribute("thongbao", 2);
+				request.getRequestDispatcher("/WEB-INF/HomePage.jsp").forward(request, response);
+			}
+			
+		}
+		catch (Exception e) {
+			//thông báo thất bại
+			request.setAttribute("thongbao", 1);
+			request.getRequestDispatcher("/WEB-INF/HomePage.jsp").forward(request, response);
+		}
+	}
+	
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		request.getRequestDispatcher("/WEB-INF/HomePageAll.jsp").forward(request, response);
+	}
+	
+	
+}

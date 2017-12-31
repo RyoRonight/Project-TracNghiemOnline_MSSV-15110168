@@ -1,0 +1,143 @@
+.inline-block {
+	display: inline-block;
+}
+
+
+/*******************My-Container***********************/
+.my-container {
+	margin: auto;
+	width: 96%;
+	border:black 2px solidd;
+	margin-bottom: 100px;
+	font-size: 17px;
+}
+
+
+/******Menu********/
+.menu {
+	background: #c9fafc;
+	border: 2px solid #1dd8e0;
+	text-align: left !important;
+	border-radius: 10px;
+	padding-top: 2%;
+	margin-top: 2%;
+	float: left;
+}
+.menu, .menu table a {
+	font-size: 15px;
+	font-weight: bold;
+}
+.menu table a {
+	color: #9130b2 !important;
+	border: none;
+	
+}
+
+.menu table a:hover {
+	color: red !important;
+	text-decoration: none!important;
+}
+
+/******List********/
+.list {
+	width: 78%;
+	margin-top: 2%;
+	margin-left: auto;
+	padding: 2%;
+}
+
+.list, .list input {
+	font-size: 17px;
+}
+
+.list .form-group {
+	width: 35%;
+	padding: 1%;
+	background: #d6e4f9;
+	border-radius: 10px;
+	float:right;
+}
+
+.list thead {
+	background: #2284F1;
+	color: #111;
+}
+
+.list thead th {
+	border: 1px solid #fff;
+}
+
+.list tbody {
+	border: 1px solid #ccc;
+	background: #eee;
+}
+
+.list tbody tr td a {
+	background: none;
+	border: none;
+	padding: 0;
+}
+
+.list tbody tr td a:hover {
+	background: none;
+}
+
+.list tbody tr td img {
+	width: 27px;
+}
+
+/******Modal*******/
+.modal .modal-body img {
+	width: 200px;
+	height: 200px;
+	border: 1px solid black;
+	margin-bottom: 5%;
+}
+
+.view label, .edit label {
+	color: #9130b2;
+}
+
+.view .inline-block {
+	margin-left: 7%;
+}
+
+/******my-info********/
+.my-info {
+	width: 77%;
+	margin-left: auto;
+	padding: 0px 4% 2% 4%;
+	border: 1px solid black;
+	background-image: url(../images/bg-form.jpg)!important;
+	background-size:  cover;
+	box-shadow:10px 10px rgba(0,0,0,0.6);
+}
+
+.my-info .inline-block{
+	margin-right: 4%;
+}
+
+/*Man hinh thu nho toi da 720px*/
+@media only screen and (max-width: 720px) {
+	/******Menu******/
+	.menu table a {font-size: 10px !important;}
+	.menu, .menu table a {font-size: 8px;}
+
+	/******List******/
+	.list, .list input {font-size: 10px;}
+	
+	.list tbody tr td img {width: 14px;}
+
+	/******Modal******/
+	.modal .modal-body img {width: 120px;height: 120px;}
+	.modal input {height: 100%;}
+	.view {width: 70%;}
+	.view input {width: 110%!important;}
+	.view form {margin-left: 5%}
+	
+	/******my-info********/
+	.my-info {font-size: 13px;}
+	.my-info input {font-size: 11px;height: 100%;}
+	.my-info h1 {font-size: 22px;}
+	.my-info button {font-size: 9px}
+}

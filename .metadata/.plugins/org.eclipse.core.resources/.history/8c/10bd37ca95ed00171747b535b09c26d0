@@ -1,0 +1,32 @@
+package wp.Ryo.controller;
+
+import java.io.IOException;
+
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import wp.Ryo.bean.Exam;
+import wp.Ryo.bean.QuestionInfo;
+import wp.Ryo.bean.User;
+import wp.Ryo.bean.UserInfo;
+import wp.Ryo.model.DBQuestion;
+import wp.Ryo.model.DBUser;
+import wp.Ryo.model.DBExam;
+
+
+@WebServlet("/themkhoathi")
+public class addDepartment extends HttpServlet {
+	private static final long serialVersionUID = 1L;
+	
+	public addDepartment() {
+		super();
+	}
+	
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
+	}
+	
+}

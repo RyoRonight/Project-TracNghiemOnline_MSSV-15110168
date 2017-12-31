@@ -1,0 +1,12 @@
+package wp.Ryo.bean;
+
+import java.math.BigInteger;
+
+public class Exam {
+	String examId;
+	String examName;
+	String subject;
+	int num;
+	String testDay;
+	String examTime;
+}

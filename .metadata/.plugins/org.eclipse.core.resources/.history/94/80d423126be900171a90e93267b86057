@@ -1,0 +1,9 @@
+function en_modal_text() {
+    document.getElementById("username myText").disabled = false;
+    document.getElementById("pw myText").disabled = false;
+    document.getElementById("fullname myText").disabled = false;
+    document.getElementById("role myText").disabled = false;
+    
+    document.getElementById("btn_edit").disabled = true;
+    document.getElementById("btn_update").disabled = false;
+}

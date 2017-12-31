@@ -1,0 +1,87 @@
+package wp.Ryo.controller;
+
+import java.io.IOException;
+
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import wp.Ryo.bean.User;
+import wp.Ryo.bean.UserInfo;
+import wp.Ryo.model.DBUser_Info;
+
+@WebServlet("/capnhapUser")
+public class updateUser extends HttpServlet {
+	private static final long serialVersionUID = 1L;
+
+	public updateUser() {
+		super();
+	}
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		//nhận MSND và chuyển nó đến trang AdminPage.jsp
+		String username = (String) request.getParameter("MSND");
+		request.setAttribute("MSND", username);
+		request.getRequestDispatcher("Update.jsp").forward(request, response);		
+	}
+	
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		// nhận chuẩn bộ mã hóa ký tự UTF-8
+		request.setCharacterEncoding("UTF-8");
+		response.setCharacterEncoding("UTF-8");
+		
+		
+		
+		  // nhận giá trị từ request
+		String username = (String) request.getParameter("MSND");
+		//String roles = (String) request.getParameter("roles");
+		
+		
+		String fullname = (String) request.getParameter("fullname");
+		
+		String department_id = (String) request.getParameter("DepartmentId");
+		String class_id = (String) request.getParameter("ClassId");
+		String email = (String) request.getParameter("email");
+		
+		// đưa dữ liệu vào gói model
+		User user = new User();
+		user.setUsername(username);
+		//user.setRole(Integer.parseInt(roles));
+		
+		System.out.println(username);
+		
+		UserInfo userinfo =new UserInfo();
+		userinfo.setFullname(fullname);
+		userinfo.setDepartmentId(department_id);
+		userinfo.setClassId(class_id);
+		userinfo.setEmail(email);
+		
+		// gọi hàm cập nhật user từ lớp DBUser_Info của gói model
+		DBUser_Info db = new DBUser_Info();
+		
+		try {
+			if (db.updateUser(user, userinfo)) {
+				request.getRequestDispatcher("/WEB-INF/quanlyuser.jsp").forward(request, response);
+			}
+			else
+			{
+				//thông báo thất bại
+				request.setAttribute("thongbao", 0);
+				request.getRequestDispatcher("/WEB-INF/capnhapuser.jsp?iduser="+username).forward(request, response);
+			}
+		}
+		catch (Exception e) {
+			//thông báo thất bại
+			request.setAttribute("thongbao", 0);
+			request.getRequestDispatcher("/WEB-INF/capnhapuser.jsp?iduser="+username).forward(request, response);
+		}
+	}
+}
+
+		
+		
+		
+		
+		
+		

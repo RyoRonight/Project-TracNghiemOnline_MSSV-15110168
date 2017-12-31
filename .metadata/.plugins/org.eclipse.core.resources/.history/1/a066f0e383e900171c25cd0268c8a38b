@@ -1,0 +1,28 @@
+function en_modal_text() {
+    document.getElementById("username myText").disabled = false;
+    document.getElementById("pw myText").disabled = false;
+    document.getElementById("fullname myText").disabled = false;
+    document.getElementById("role myText").disabled = false;
+    
+    document.getElementById("btn_edit").disabled = true;
+    document.getElementById("btn_update").disabled = false;
+}
+
+function en_ques() {
+    document.getElementById("qsID myText").disabled = false;
+    document.getElementById("sub myText").disabled = false;
+    document.getElementById("topic myText").disabled = false;
+    document.getElementById("level myText").disabled = false;
+    document.getElementById("qs myText").disabled = false;
+    document.getElementById("aa myText").disabled = false;
+    document.getElementById("ab myText").disabled = false;
+    document.getElementById("ac myText").disabled = false;
+    document.getElementById("ad myText").disabled = false;
+    document.getElementById("va myText").disabled = false;
+    document.getElementById("vb myText").disabled = false;
+    document.getElementById("vc myText").disabled = false;
+    document.getElementById("vd myText").disabled = false;
+    
+    document.getElementById("btn_edit").disabled = true;
+    document.getElementById("btn_update").disabled = false;
+}

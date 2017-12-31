@@ -1,0 +1,5 @@
+package wp.Ryo.bean;
+
+public class QuestionInfo {
+
+}

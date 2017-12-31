@@ -1,0 +1,100 @@
+package wp.Ryo.controller;
+
+import java.io.IOException;
+
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import wp.Ryo.bean.Question;
+import wp.Ryo.bean.QuestionInfo;
+import wp.Ryo.model.DBQuestion;
+
+@WebServlet("/capnhapQues")
+public class updateQues extends HttpServlet {
+	private static final long serialVersionUID = 1L;
+
+	public updateQues() {
+		super();
+	}
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		//nhận MSND và chuyển nó đến trang QuestionPage.jsp
+		String questionId = (String) request.getParameter("MaCauHoi");
+		request.setAttribute("MaCauHoi", questionId);
+		request.getRequestDispatcher("UpdateQues.jsp").forward(request, response);		
+	}
+	
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		// nhận chuẩn bộ mã hóa ký tự UTF-8
+		request.setCharacterEncoding("UTF-8");
+		response.setCharacterEncoding("UTF-8");
+		
+	
+		  // nhận giá trị từ request
+		String questionId = (String) request.getParameter("u_qs");
+		String subject = (String) request.getParameter("u_sub");
+		String topic = (String) request.getParameter("u_topic");
+		String level = (String) request.getParameter("u_level");
+		String contentQ = (String) request.getParameter("u_content");
+		String answerA = (String) request.getParameter("u_aa");
+		String answerB = (String) request.getParameter("u_ab");
+		String answerC = (String) request.getParameter("u_ac");
+		String answerD = (String) request.getParameter("u_ad");
+		String valueA = (String) request.getParameter("u_va");
+		String valueB = (String) request.getParameter("u_vb");
+		String valueC = (String) request.getParameter("u_vc");
+		String valueD = (String) request.getParameter("u_vd");
+		
+		
+		
+		
+		// đưa dữ liệu vào gói model
+		Question qs = new Question();
+		qs.setQuestionId(questionId);
+		
+		QuestionInfo qsinfo = new QuestionInfo();
+		qsinfo.setSubject(subject);
+		qsinfo.setTopic(topic);
+		qsinfo.setLevel(level);
+		qsinfo.setContentQ(contentQ);
+		qsinfo.setAnswerA(answerA);
+		qsinfo.setAnswerB(answerB);
+		qsinfo.setAnswerC(answerC);
+		qsinfo.setAnswerD(answerD);
+		qsinfo.setValueA(valueA);
+		qsinfo.setValueB(valueB);
+		qsinfo.setValueC(valueC);
+		qsinfo.setValueD(valueD);
+		
+		// gọi hàm cập nhật user từ lớp DBUser_Info của gói model
+		
+		DBQuestion db = new DBQuestion();
+		System.out.println(questionId);
+		try {
+			if (db.updateQs(qs, qsinfo)) {
+				request.setAttribute("thongbao", 20);
+				request.getRequestDispatcher("QuestionPage.jsp").forward(request, response);
+			}
+			else
+			{
+				//thông báo thất bại
+				request.setAttribute("thongbao", 21);
+				request.getRequestDispatcher("UpdateQues.jsp?MaCauHoi="+questionId).forward(request, response);
+			}
+		}
+		catch (Exception e) {
+			//thông báo thất bại
+			request.setAttribute("thongbao", 22);
+			request.getRequestDispatcher("UpdateQues.jsp?MaCauHoi="+questionId).forward(request, response);
+		}
+	}
+}
+
+		
+		
+		
+		
+		
+		

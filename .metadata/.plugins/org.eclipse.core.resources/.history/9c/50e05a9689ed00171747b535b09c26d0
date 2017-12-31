@@ -1,0 +1,49 @@
+package wp.Ryo.controller;
+
+import java.io.IOException;
+
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
+import wp.Ryo.bean.Exam;
+import wp.Ryo.model.DBExam;
+
+@WebServlet("/taokythi")
+public class checkNumQues extends HttpServlet {
+	private static final long serialVersionUID = 1L;
+	
+	public checkNumQues() {
+		
+	}
+	
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		try {
+			//Nhận giá trị từ request
+			String examId = (String) request.getParameter("MaDeThi");
+			
+			// đưa dữ liệu vào lớp model
+			Exam ex = new Exam();
+			ex.setExamId(examId);
+			
+			System.out.println(examId);
+			
+			DBExam db = new DBExam();
+			
+			if (db.getNumQues(ex) > 0) {
+				request.setAttribute("t_exID", examId);
+				request.getRequestDispatcher("CreateExam.jsp").forward(request, response);
+			}
+			else {
+				request.getRequestDispatcher("ExamManagePage.jsp").forward(request, response);
+			}
+			
+		}
+		catch(Exception e) {
+			request.getRequestDispatcher("ExamManagePage.jsp").forward(request, response);
+		}
+	}
+}

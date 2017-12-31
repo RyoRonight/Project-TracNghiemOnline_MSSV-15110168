@@ -1,0 +1,12 @@
+eclipse.preferences.version=1
+encoding//src/wp/Ryo/bean/QuestionInfo.java=UTF-8
+encoding//src/wp/Ryo/controller/createQuestion.java=UTF-8
+encoding//src/wp/Ryo/controller/createUser.java=UTF-8
+encoding//src/wp/Ryo/controller/deleteQuestion.java=UTF-8
+encoding//src/wp/Ryo/controller/deleteUser.java=UTF-8
+encoding//src/wp/Ryo/controller/login.java=UTF-8
+encoding//src/wp/Ryo/controller/updateUser.java=UTF-8
+encoding//src/wp/Ryo/model/ConnectDatabase.java=UTF-8
+encoding//src/wp/Ryo/model/DBQuestion.java=UTF-8
+encoding//src/wp/Ryo/model/DBUser.java=UTF-8
+encoding//src/wp/Ryo/model/DBUser_Info.java=UTF-8

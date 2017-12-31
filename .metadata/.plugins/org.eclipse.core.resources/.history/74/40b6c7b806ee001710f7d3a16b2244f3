@@ -1,0 +1,21 @@
+package wp.Ryo.controller;
+
+
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.io.IOException;
+
+public class abc {
+	
+	public abc() {
+		
+	}
+	
+	Date date = new Date();
+	  
+	String strDateFormat = "dd/MM/yyyy";
+	  
+	SimpleDateFormat simpleDateFormat = new SimpleDateFormat(strDateFormat);
+	System.out.println("Hôm nay là ngày : " + simpleDateFormat.format(date));
+	
+}

@@ -1,0 +1,14 @@
+package wp.Ryo.model;
+
+import java.sql.CallableStatement;
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+
+import wp.Ryo.model.ConnectDatabase;
+import wp.Ryo.bean.Question;
+import wp.Ryo.bean.UserInfo;
+
+public class DBQuestion {
+
+}

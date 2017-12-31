@@ -1,0 +1,89 @@
+package wp.Ryo.controller;
+
+import java.io.IOException;
+
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import wp.Ryo.bean.Question;
+import wp.Ryo.bean.QuestionInfo;
+import wp.Ryo.bean.User;
+import wp.Ryo.bean.UserInfo;
+import wp.Ryo.model.DBQuestion;
+import wp.Ryo.model.DBUser;
+
+
+@WebServlet("/taocauhoi")
+public class createQuestion extends HttpServlet {
+	private static final long serialVersionUID = 1L;
+
+
+	public createQuestion() {
+		super();
+	}
+	
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
+		try {
+			 // nhận giá trị từ request
+			String questionID = (String) request.getParameter("c_qsId");
+			String subject = (String) request.getParameter("c_sub");
+			String topic = (String) request.getParameter("c_topic");
+			String level = (String) request.getParameter("c_level");
+			String contentQ = (String) request.getParameter("c_qs");
+			String answerA = (String) request.getParameter("c_aa");
+			String answerB = (String) request.getParameter("c_ab");
+			String answerC = (String) request.getParameter("c_ac");
+			String answerD = (String) request.getParameter("c_ad");
+			String valueA = (String) request.getParameter("c_va");
+			String valueB = (String) request.getParameter("c_vb");
+			String valueC = (String) request.getParameter("c_vc");
+			String valueD = (String) request.getParameter("c_vd");
+			
+			
+			// đưa dữ liệu vào gói model
+			Question qs = new Question();
+			qs.setQuestionId(questionID);
+			
+			QuestionInfo qsinfo = new QuestionInfo();
+			qsinfo.setSubject(subject);
+			qsinfo.setTopic(topic);
+			qsinfo.setLevel(level);
+			qsinfo.setContentQ(contentQ);
+			qsinfo.setAnswerA(answerA);
+			qsinfo.setAnswerB(answerB);
+			qsinfo.setAnswerC(answerC);
+			qsinfo.setAnswerD(answerD);
+			qsinfo.setValueA(valueA);
+			qsinfo.setValueB(valueB);
+			qsinfo.setValueC(valueC);
+			qsinfo.setValueD(valueD);
+			
+			DBQuestion db = new DBQuestion();
+			
+			if (db.createQuestion(qs, qsinfo)) {
+				// thông báo thành công
+				request.setAttribute("thongbao", 10);
+				request.getRequestDispatcher("QuestionPage.jsp").forward(request, response);
+			}
+			else
+			{	
+				//thông báo trùng tên
+				request.setAttribute("thongbao", 11);
+				request.getRequestDispatcher("QuestionPage.jsp").forward(request, response);
+			}	
+			
+		
+			
+		}
+		catch (Exception e) {
+			//thông báo thất bại do hệ thống
+			request.setAttribute("thongbao", 12);
+			request.getRequestDispatcher("QuestionPage.jsp").forward(request, response);
+		}
+	}
+}
+

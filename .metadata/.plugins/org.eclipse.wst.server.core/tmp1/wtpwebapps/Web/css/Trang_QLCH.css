@@ -1,0 +1,23 @@
+textarea {
+	width: 100%;
+}
+
+.view .content {
+	margin-bottom: 1%!important;
+}
+
+.view form {
+	margin-bottom: 3%!important;
+	margin-right: 15%
+}
+
+.my-info {
+	background-image: url(../images/bg-ques.jpg)!important;
+	background-size: contain!important;
+}
+
+
+/*Man hinh thu nho toi da 720px*/
+@media only screen and (max-width: 720px) {
+	/******Text Area******/
+}

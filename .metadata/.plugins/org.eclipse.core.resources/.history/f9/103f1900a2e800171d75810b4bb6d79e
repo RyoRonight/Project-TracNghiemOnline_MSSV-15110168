@@ -1,0 +1,34 @@
+package wp.Ryo.model;
+
+import java.sql.CallableStatement;
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+
+import wp.Ryo.model.ConnectDatabase;
+import wp.Ryo.bean.Question;
+import wp.Ryo.bean.User;
+import wp.Ryo.bean.UserInfo;
+
+public class DBQuestion {
+	
+	public DBQuestion() {
+		
+	}
+	
+	// Hàm gọi store procedure để xóa câu hỏi
+	public Boolean deleteQuestion(Question qs) throws SQLException {
+		Connection conn = ConnectDatabase.getConnection();
+		try {
+			String call = "{call spDeleteQues(?)}";
+			CallableStatement stmt = conn.prepareCall(call);
+			stmt.setString(1, qs.getQuestionId());
+			return ConnectDatabase.MyExcuteUpdateNonQuery(conn, stmt);
+		} catch (Exception e) {
+			return false;
+		}finally {
+			conn.close();
+		}
+	}
+	
+}
